@@ -1,11 +1,29 @@
 const readLine = require("readline-sync");
 
-const año = readLine.question("Introduce un año: ");
+// Función reutilizable
+function esBisiesto(año) {
+    return (año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0);
+}
 
-if ((año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0)) {
-      console.log("El año introducido es bisiesto.");
+// Bucle principal
+while (true) {
+    const input = readLine.question("Introduce un año (o escribe 'salir'): ");
 
- } else {
-      console.log("El año introducido no es bisiesto.");
- }
+    if (input.toLowerCase() === "salir") {
+        console.log("Programa Finalizado.");
+        break;
+    }
 
+    const año = Number(input);
+
+    if (!Number.isInteger(año)) {
+        console.log("Error: introduce un número entero válido.\n");
+        continue;
+    }
+
+    console.log(
+        esBisiesto(año)
+            ? `El año ${año} es bisiesto.\n`
+            : `El año ${año} no es bisiesto.\n`
+    );
+}
