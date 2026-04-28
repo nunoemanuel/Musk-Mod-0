@@ -21,6 +21,7 @@ while (true) {
         continue;
     }
 
+// Mostramos en pantalla si el año añadido es bisiesto o no
     console.log(
         esBisiesto(año)
             ? `El año ${año} es bisiesto.\n`
